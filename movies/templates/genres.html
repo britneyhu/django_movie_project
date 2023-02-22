@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body class="container">
+{% load static %}
+<!--navbar-->
+  <div class="navbar">
+    <div class="logocontainer">
+      <a href="/home">
+        <img class="logo" src="{% static '/images/Rewatch Logo (no title).png' %}">
+      </a>
+      <h1 class="logo-text">Rewatch Project</h1>
+    </div>
+    <a href="/movies">Movies</a>
+    <a href="/directors">Directors</a>
+    <a href="/genres">Genres</a>
+    <a href="/stats">Stats</a>
+    <a href="/addmovie"><b>+</b></a>
+    <div class="search-container">
+      <form action="{% url 'search' %}" method="get" autocomplete="off" novalidate>
+        <input name="search" type="" class="search-bar" placeholder="Search...">
+        <button type="submit" class="search-button">Go</button>
+      </form>
+    </div>
+  </div>
+<hr class="navline">
+<!--navbar-->
+
+<!--all rows-->
+  <div class="row">
+
+<!--action column-->
+    <div class="col-md-4">
+      <div class="caption">
+        <p class="name">Action</p>
+      </div>
+      <div class="thumbnail">
+        <form action="{% url 'display_category_results' %}" method="get">
+          <button class="genre-button" name="search" type="submit" value="Action">
+            <img class="genre-button img" src="{% static '/images/genres/Action.jpg' %}">
+          </button>
+        </form>
+      </div>
+      <div class="description">
+        <p class="information"><b>Movies:</b> </p>
+        {% for i in action_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+      </div>
+      <hr class="line">
+    </div>
+<!--action column-->
+
+<!--comedy column-->
+    <div class="col-md-4">
+      <div class="caption">
+        <p class="name">Comedy</p>
+      </div>
+      <div class="thumbnail">
+        <form action="{% url 'display_category_results' %}" method="get">
+          <button class="genre-button" name="search" type="submit" value="Comedy">
+            <img class="genre-button img" src="{% static '/images/genres/Comedy.jpg' %}">          
+          </button>
+        </form>
+      </div>
+      <div class="description">
+        <p class="information"><b>Movies:</b> </p>
+        {% for i in comedy_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+      </div>
+      <hr class="line">
+    </div>
+<!--comedy column-->
+
+<!--drama comedy column-->
+    <div class="col-md-4">
+      <div class="caption">
+        <p class="name">Drama/Comedy</p>
+      </div>
+      <div class="thumbnail">
+        <form action="{% url 'display_category_results' %}" method="get">
+          <button class="genre-button" name="search" type="submit" value="Drama Comedy">
+            <img class="genre-button img" src="{% static '/images/genres/Drama Comedy.jpg' %}">          
+          </button>
+        </form>
+      </div>
+      <div class="description">
+      <p class="information"><b>Movies:</b> </p>
+        {% for i in dramacomedy_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+      </div>
+      <hr class="line">
+    </div>
+<!--drama comedy column-->
+
+<!--drama column-->
+    <div class="col-md-4">
+      <div class="caption">
+        <p class="name">Drama</p>
+      </div>
+      <div class="thumbnail">
+        <form action="{% url 'display_category_results' %}" method="get">
+          <button class="genre-button" name="search" type="submit" value="Drama">
+            <img class="genre-button img" src="{% static '/images/genres/Drama.jpg' %}">          
+          </button>
+        </form>
+      </div>
+      <div class="description">
+      <p class="information"><b>Movies:</b> </p>
+        {% for i in drama_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+      </div>
+      <hr class="line">
+    </div>
+<!--drama column-->
+
+<!--drama mystery column-->
+    <div class="col-md-4">
+      <div class="caption">
+        <p class="name">Drama/Mystery</p>
+      </div>
+      <div class="thumbnail">
+        <form action="{% url 'display_category_results' %}" method="get">
+          <button class="genre-button" name="search" type="submit" value="Drama Mystery">
+            <img class="genre-button img" src="{% static '/images/genres/Drama Mystery.jpg' %}">          
+          </button>
+        </form>
+      </div>
+    <div class="description">
+      <p class="information"><b>Movies:</b> </p>
+        {% for i in dramamystery_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--drama mystery column-->
+
+<!--drama romance column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Drama/Romance</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="genre-button" name="search" type="submit" value="Drama Romance">
+          <img class="genre-button img" src="{% static '/images/genres/Drama Romance.jpg' %}">        
+        </button>
+      </form>
+    </div>
+    <div class="description">
+      <p class="information"><b>Movies:</b> </p>
+        {% for i in dramaromance_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--drama romance column-->
+
+<!--feel good column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Feel Good</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="genre-button" name="search" type="submit" value="Feel Good">
+          <img class="genre-button img" src="{% static '/images/genres/Feel Good.jpg' %}">        
+        </button>
+      </form>
+    </div>
+    <div class="description">
+    <p class="information"><b>Movies:</b> </p>
+      {% for i in feelgood_objects %}
+        <p class="information">{{i.title}}</p>
+      {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--feel good column-->
+
+<!--horror column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Horror</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="genre-button" name="search" type="submit" value="Horror">
+          <img class="genre-button img" src="{% static '/images/genres/Horror.jpg' %}">        
+        </button>
+      </form>
+    </div>
+    <div class="description">
+    <p class="information"><b>Movies:</b> </p>
+      {% for i in horror_objects %}
+        <p class="information">{{i.title}}</p>
+      {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--horror column-->
+
+<!--sci-fi dystopia column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Sci-Fi/Dystopia</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="genre-button" name="search" type="submit" value="Sci-Fi Dystopia">
+          <img class="genre-button img" src="{% static '/images/genres/Sci-Fi Dystopia.jpg' %}">        
+        </button>
+      </form>
+    </div>
+    <div class="description">
+      <p class="information"><b>Movies:</b> </p>
+        {% for i in scifidystopia_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--sci-fi dystopia column-->
+
+<!--series column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Series</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="genre-button" name="search" type="submit" value="Series">
+          <img class="genre-button img" src="{% static '/images/genres/Series.jpg' %}">        
+        </button>
+      </form>
+    </div>
+    <div class="description">
+        <p class="information"><b>Movies:</b> </p>
+        {% for i in series_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--series column-->
+
+<!--superhero column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Superhero</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="genre-button" name="search" type="submit" value="Superhero">
+          <img class="genre-button img" src="{% static '/images/genres/Superhero.jpg' %}">        
+        </button>
+      </form>
+    </div>
+    <div class="description">
+      <p class="information"><b>Movies:</b> </p>
+        {% for i in superhero_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--superhero column-->
+
+<!--thriller column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Thriller</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="genre-button" name="search" type="submit" value="Thriller">
+          <img class="genre-button img" src="{% static '/images/genres/Thriller.jpg' %}">        
+        </button>
+      </form>
+    </div>
+    <div class="description">
+      <p class="information"><b>Movies:</b> </p>
+        {% for i in thriller_objects %}
+          <p class="information">{{i.title}}</p>
+        {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--thriller column-->
+
+    </div>
+<!--all rows-->
+
+</body>
+</html>

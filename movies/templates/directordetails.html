@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body class="container">
+
+<!--navbar-->
+  <div class="navbar">
+    <div class="logocontainer">
+      <a href="/home">
+      <img class="logo" src="{% static '/images/Rewatch Logo (no title).png' %}">
+      </a>
+      <h1 class="logo-text">Rewatch Project</h1>
+    </div>
+    <a href="/movies">Movies</a>
+    <a href="/directors">Directors</a>
+    <a href="/genres">Genres</a>
+    <a href="/stats">Stats</a>
+    <a href="/addmovie"><b>+</b></a>
+    <div class="search-container">
+      <form action="{% url 'search' %}" method="get" autocomplete="off" novalidate>
+        <input name="search" type="" class="search-bar" placeholder="Search...">
+        <button type="submit" class="search-button">Go</button>
+      </form>
+    </div>
+  </div>
+<hr class="navline">
+<!--navbar-->
+
+<div class="thumbnail">
+  <a href="/directors/{{ director_object.director }}">
+  <img class="detailimage" src="{{MEDIA_URL}}/media/{{director_object.image}}" alt="Lights">
+  </a>
+</div>
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <div class="detaildescription">
+    <p class="detailinformation"><b>{{director_object.director}}</b></p>
+    <p class="detailinformation"><b>Number of Movies:</b> {{director_object.num_movies}}</p>
+    <p class="detailinformation"><b>Movies:</b> {% for i in director_object.movies %}{{i}} {% endfor %}</p>
+    <p class="detailinformation"><b>Most Frequent Genre:</b> {{director_object.most_genre}}</p>
+    <p class="detailinformation"><b>Most Frequent Actor:</b> {% for i in director_object.most_actor %}{% for x in i %}{{x}} {% endfor %}{% endfor %}</p>
+    <p class="detailinformation"><b>Average Rating:</b> {{director_object.avg_rating}}</p>
+  </div>
+</div>
+<div class="col-md-4"></div>
+</body>
+</html>

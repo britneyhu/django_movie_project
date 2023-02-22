@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body class="container">
+
+<!--navbar-->
+  <div class="navbar">
+    <div class="logocontainer">
+      <a href="/home">
+      <img class="logo" src="{% static '/images/Rewatch Logo (no title).png' %}">
+      </a>
+      <h1 class="logo-text">Rewatch Project</h1>
+    </div>
+    <a href="/movies">Movies</a>
+    <a href="/directors">Directors</a>
+    <a href="/genres">Genres</a>
+    <a href="/stats">Stats</a>
+    <a href="/addmovie"><b>+</b></a>
+    <div class="search-container">
+      <form action="{% url 'search' %}" method="get" autocomplete="off" novalidate>
+        <input name="search" type="" class="search-bar" placeholder="Search...">
+        <button type="submit" class="search-button">Go</button>
+      </form>
+    </div>
+  </div>
+<hr class="navline">
+<!--navbar-->
+
+<!--all rows-->
+<div class="row">
+
+<!--highest rated movie column-->
+  <div class="col-md-4">
+    <div class="caption">
+      <p class="name">Highest Rated Movies</p>
+    </div>
+    <div class="thumbnail">
+      <form action="{% url 'display_category_results' %}" method="get">
+        <button class="stats-button" name="search" type="submit" value="Highest Rated Movies">
+          <img src="{{ highestratedimage.movieimage.url }}" alt="Lights">
+        </button>
+      </form>
+    </div>
+    <div class="description">
+      <p class="information"><b>Top 5:</b> </p>
+        {% for i in highestrated %}
+          <p class="information">{{i.title}}: {{i.rating}}</p>
+        {% endfor %}
+    </div>
+    <hr class="line">
+  </div>
+<!--highest rated movie column-->
+
+<!--most rewatched movie column-->
+<div class="col-md-4">
+  <div class="caption">
+    <p class="name">Most Rewatched Movies</p>
+  </div>
+  <div class="thumbnail">
+    <form action="{% url 'display_category_results' %}" method="get">
+      <button class="stats-button" name="search" type="submit" value="Most Rewatched Movies">
+        <img src="{{ mostrewatchedimage.movieimage.url }}" alt="Lights">
+      </button>
+    </form>
+  </div>
+  <div class="description">
+    <p class="information"><b>Top 5:</b> </p>
+      {% for i in mostrewatched %}
+        <p class="information">{{i.title}}: {{i.timeswatched}}</p>
+      {% endfor %}
+  </div>
+  <hr class="line">
+</div>
+<!--most rewatched movie column-->
+
+<!--most recent movies column-->
+<div class="col-md-4">
+  <div class="caption">
+    <p class="name">Most Recent Movies</p>
+  </div>
+  <div class="thumbnail">
+    <form action="{% url 'display_category_results' %}" method="get">
+      <button class="stats-button" name="search" type="submit" value="Most Recent Movies">
+        <img src="{{ mostrecentimage.movieimage.url }}" alt="Lights">
+      </button>
+    </form>
+  </div>
+  <div class="description">
+    <p class="information"><b>Top 5:</b> </p>
+      {% for i in mostrecent %}
+        <p class="information">{{i.title}}: {{i.year}}</p>
+      {% endfor %}
+  </div>
+  <hr class="line">
+</div>
+<!--most recent movies column-->
+
+<!--highest rated director column-->
+<div class="col-md-4">
+  <div class="caption">
+    <p class="name">Highest Rated Directors</p>
+  </div>
+  <div class="thumbnail">
+    <form action="{% url 'display_category_results' %}" method="get">
+      <button class="stats-button" name="search" type="submit" value="Highest Rated Director">
+        <img src="{{MEDIA_URL}}/media/images/directors/{{highestrateddirectorimage}}.jpg" alt="Lights">
+      </button>
+    </form>
+  </div>
+  <div class="description">
+    <p class="information"><b>Top 5:</b> </p>
+      {% for i in highestrateddirector %}
+        <p class="information">{{i.director}}: {{i.avg_rating}}</p>
+      {% endfor %}
+  </div>
+  <hr class="line">
+</div>
+<!--highest rated director column-->
+
+</div>
+<!--all rows-->
+
+</body>
+</html>

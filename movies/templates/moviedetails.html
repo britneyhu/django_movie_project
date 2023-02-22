@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body class="container">
+
+<!--navbar-->
+  <div class="navbar">
+    <div class="logocontainer">
+      <a href="/home">
+      <img class="logo" src="{% static '/images/Rewatch Logo (no title).png' %}">
+      </a>
+      <h1 class="logo-text">Rewatch Project</h1>
+    </div>
+    <a href="/movies">Movies</a>
+    <a href="/directors">Directors</a>
+    <a href="/genres">Genres</a>
+    <a href="/stats">Stats</a>
+    <a href="/addmovie"><b>+</b></a>
+    <div class="search-container">
+      <form action="{% url 'search' %}" method="get" autocomplete="off" novalidate>
+        <input name="search" type="" class="search-bar" placeholder="Search...">
+        <button type="submit" class="search-button">Go</button>
+      </form>
+    </div>
+  </div>
+<hr class="navline">
+<!--navbar-->
+
+
+<div class="thumbnail">
+  <a href="/movies/{{ movie.id }}">
+  <img class="detailimage" src="{{ movie.movieimage.url }}" alt="Lights">
+  </a>
+</div>
+
+<div class="col-md-4">
+<div class="col-md-4">
+  <div class="detaildescription">
+    <p class="detailinformation"><b>Director:</b> {{movie.director}}</p>
+    <p class="detailinformation"><b>Genre:</b> {{movie.genre}}</p>
+    <p class="detailinformation"><b>Year:</b> {{movie.year}}</p>
+    <p class="detailinformation"><b>Starring:</b> {{movie.star1}} & {{movie.star2}}</p>
+    <p class="detailinformation"><b>Rating:</b> {{movie.rating}}</p>
+    <p class="detailinformation"><b>Times Watched:</b> {{movie.timeswatched}}</p>
+  </div>
+</div>
+<div class="edit-button0">
+  <a class="edit-button" type="button" href="/movies/{{ movie.id }}/edit/">Edit Movie</a>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+  <link rel="stylesheet" href="{% static '/css/yearpicker.css' %}">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="{% static '/js/yearpicker.js' %}"  type="text/javascript" async></script>
+
+</head>
+<body class="container-form">
+<div class="container">
+<!--navbar-->
+  <div class="navbar">
+    <div class="logocontainer">
+      <a href="/home">
+        <img class="logo" src="{% static '/images/Rewatch Logo (no title).png' %}">
+      </a>
+      <h1 class="logo-text">Rewatch Project</h1>
+    </div>
+    <a href="/movies">Movies</a>
+    <a href="/directors">Directors</a>
+    <a href="/genres">Genres</a>
+    <a href="/stats">Stats</a>
+    <a href="/addmovie"><b>+</b></a>
+    <div class="search-container">
+      <form action="{% url 'search' %}" method="get" autocomplete="off" novalidate>
+        <input name="search" type="" class="search-bar" placeholder="Search...">
+        <button type="submit" class="search-button">Go</button>
+      </form>
+    </div>
+  </div>
+<hr class="navline">
+
+<!--navbar-->
+
+<div class="form-title">Edit Movie</div>
+</div>
+{% load widget_tweaks %}
+<div class="form">
+  <form class="form" method="POST" action="" enctype="multipart/form-data" autocomplete="off" novalidate>
+    {% csrf_token %}
+
+    <div class="title">
+      <div class="title-label" for="title">Title</div>
+      <div>{{ form.title }}</div>
+    </div>
+
+    <div class="director">
+      <div class="title-label" for="director">Director</div>
+      <div>{{ form.director }}</div>
+    </div>
+
+    <div class="genre">
+      <div class="genre-label" for="genre">Genre</div>
+      <div class="genre-box">
+        {% for radio in form.genre %}
+          <input type="radio" id="radiotag">{{ radio.tag }}</input>  
+          <label for="{{radio.id_for_label}}" class=genre-option>
+            {{ radio.choice_label }}
+          </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="star">
+      <div class="form-column">
+        <div class="star-label" for="star1">Star 1</div>
+        <div>{{ form.star1 }}</div>
+      </div>
+      <div class="divider-column"></div>
+      <div class="form-column">
+        <div class="star-label" for="star2">Star 2</div>
+        <div>{{ form.star2 }}</div>
+      </div>
+    </div>
+
+{{ year|json_script:"year" }}
+    <div class="year">
+      <div class="form-column">
+        <div class="year-label" for="title">Year</div>
+        <div>{{ form.year }}</div>
+      </div>
+      <div class="divider-column"></div>
+      <div class="form-column">
+        <div class="times-label" for="title">Times Watched</div>
+        <div>{{ form.timeswatched }}</div>
+      </div>
+    </div>
+
+    <div class="star-source">
+      <svg>
+             <linearGradient x1="50%" y1="5.41294643%" x2="87.5527344%" y2="65.4921875%" id="grad">
+                <stop stop-color="rgb(94, 81, 242)" offset="0%"></stop>
+                <stop stop-color="rgb(94, 81, 242)" offset="60%"></stop>
+                <stop stop-color="rgb(94, 81, 242)" offset="100%"></stop>
+            </linearGradient>
+        <symbol id="star" viewBox="153 89 106 108">   
+          <polygon id="star-shape" stroke="url(#grad)" stroke-width="5" fill="currentColor" points="206 162.5 176.610737 185.45085 189.356511 150.407797 158.447174 129.54915 195.713758 130.842203 206 95 216.286242 130.842203 253.552826 129.54915 222.643489 150.407797 235.389263 185.45085"></polygon>
+        </symbol>
+    </svg>
+    </div>
+
+    <div class="rating">
+      <div class="rating-label" for="genre">Rating</div>
+      <div class="star-container">
+        {% for radio in form.rating %}
+        <input type="radio" name="star">{{ radio.tag }}
+        <label for="{{radio.id_for_label}}">
+          <svg class="star">
+            <use xlink:href="#star"/>
+          </svg>
+          <div class="rating-number">
+          {{ radio.choice_label }}
+          </div>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="image-uploads">
+      <div class="form-column">
+      <div class="imageupload">
+        <div class="image-label">Movie Image</div>
+        <div class="image-box">{{ form.movieimage }}</div>
+        <label class="upload-label" for="movieupload">Choose file</label>
+      </div>
+      </div>
+      <div class="form-column">
+      <div class="imageupload">
+        <div class="image-label">Director Image</div>
+        <div class="image-box">{{ form.directorimage }}</div>
+        <label class="upload-label" for="directorupload">Choose file</label>
+      </div>
+      </div>
+  </div>
+
+  <div class="submit-buttons">
+      <div class="edit-button0">
+        <button class="delete-button" name="delete" type="submit">Delete Movie</button>
+    </div>
+    <div class="edit-button0">
+    <button class="edit-button" type="submit">Edit</button>
+  </div>
+</div>     
+
+</body>
+
+</html>

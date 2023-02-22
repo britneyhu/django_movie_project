@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+<!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/style.css' %}">
+</head>
+<body class="container">
+
+<!--navbar-->
+  <div class="navbar">
+    <div class="logocontainer">
+      <a href="/home">
+      <img class="logo" src="{% static '/images/Rewatch Logo (no title).png' %}">
+      </a>
+      <h1 class="logo-text">Rewatch Project</h1>
+    </div>
+    <a href="/movies">Movies</a>
+    <a href="/directors">Directors</a>
+    <a href="/genres">Genres</a>
+    <a href="/stats">Stats</a>
+    <a href="/addmovie"><b>+</b></a>
+    <div class="search-container">
+      <form action="{% url 'search' %}" method="get" autocomplete="off" novalidate>
+        <input name="search" type="" class="search-bar" placeholder="Search...">
+        <button type="submit" class="search-button">Go</button>
+      </form>
+    </div>
+  </div>
+<hr class="navline">
+<!--navbar-->
+
+<div>
+  <p class="search-title"><b>{{ query }}</b></p>
+</div>
+
+
+<!--highest rated-->
+{% if query == 'Highest Rated Movies' %}
+<!--all rows-->
+<div class="row">
+{% for i in highest_rated %}
+<!--all columns-->
+<div class="col-md-4">
+  <p class="name">{{ i.title }}</p>
+<div class="thumbnail">
+  <a href="/movies/{{ i.id }}">
+  <img class="image" src="{{ i.movieimage.url }}" alt="Lights">
+  </a>
+</div>
+<div class="description">
+  <p class="information"><b>Director:</b> {{i.director}}</p>
+  <p class="information"><b>Genre:</b> {{i.genre}}</p>
+  <p class="information"><b>Year:</b> {{i.year}}</p>
+  <p class="information"><b>Starring:</b> {{i.star1}} & {{i.star2}}</p>
+</div>
+<hr class="line">
+</div>
+<!--all columns-->
+{% endfor %}
+</div>
+<!--all rows-->
+<!--highest rated-->
+
+
+
+<!--most rewatched-->
+{% elif query == 'Most Rewatched Movies' %}
+<!--all rows-->
+<div class="row">
+{% for i in most_rewatched %}
+<!--all columns-->
+<div class="col-md-4">
+  <p class="name">{{ i.title }}</p>
+<div class="thumbnail">
+  <a href="/movies/{{ i.id }}">
+  <img class="image" src="{{ i.movieimage.url }}" alt="Lights">
+  </a>
+</div>
+<div class="description">
+  <p class="information"><b>Director:</b> {{i.director}}</p>
+  <p class="information"><b>Genre:</b> {{i.genre}}</p>
+  <p class="information"><b>Year:</b> {{i.year}}</p>
+  <p class="information"><b>Starring:</b> {{i.star1}} & {{i.star2}}</p>
+</div>
+<hr class="line">
+</div>
+<!--all columns-->
+{% endfor %}
+</div>
+<!--all rows-->
+<!--most rewatched-->
+
+
+
+<!--most recent-->
+{% elif query == 'Most Recent Movies' %}
+<!--all rows-->
+<div class="row">
+{% for i in most_recent %}
+<!--all columns-->
+<div class="col-md-4">
+  <p class="name">{{ i.title }}</p>
+<div class="thumbnail">
+  <a href="/movies/{{ i.id }}">
+  <img class="image" src="{{ i.movieimage.url }}" alt="Lights">
+  </a>
+</div>
+<div class="description">
+  <p class="information"><b>Director:</b> {{i.director}}</p>
+  <p class="information"><b>Genre:</b> {{i.genre}}</p>
+  <p class="information"><b>Year:</b> {{i.year}}</p>
+  <p class="information"><b>Starring:</b> {{i.star1}} & {{i.star2}}</p>
+</div>
+<hr class="line">
+</div>
+<!--all columns-->
+{% endfor %}
+</div>
+<!--all rows-->
+<!--most recent-->
+
+
+
+<!--highest rated director-->
+{% elif query == 'Highest Rated Director' %}
+<!--all rows-->
+<div class="row">
+{% for i in highest_rated_director %}
+<!--all columns-->
+<div class="col-md-4">
+  <p class="name">{{ i.director }}</p>
+    <div class="thumbnail">
+      <a href="/directors/{{ i.director }}">
+      <img class="image" src="{{MEDIA_URL}}/media/images/directors/{{i.director}}.jpg" alt="Lights">
+      </a>
+    </div>   
+    <div class="description">
+      <p class="information"><b>Number of Movies:</b> {{i.num_movies}}</p>
+      <p class="information"><b>Movies:</b> {{i.titles}}</p>
+      <p class="information"><b>Most frequent genre:</b> {{i.most_genre}}</p>
+      <p class="information"><b>Most frequent actor:</b> {% for i in i.most_actor %}{{i}} {% endfor %}</p>
+      <p class="information"><b>Average Rating:</b> {{i.avg_rating}}</p>
+    </div>
+<hr class="line">
+</div>
+<!--all columns-->
+{% endfor %}
+</div>
+<!--all rows-->
+<!--most rewatched-->
+
+
+
+<!--genre results-->
+{% else %}
+<!--all rows-->
+<div class="row">
+{% for i in results %}
+<!--all columns-->
+    <div class="col-md-4">
+        <p class="name">{{ i.director }}</p>
+      <div class="thumbnail">
+        <a href="/movies/{{ i.id }}">
+        <img class="image" src="{{ i.movieimage.url }}" alt="Lights">
+        </a>
+      </div>
+      <div class="description">
+      <p class="information"><b>Number of Movies:</b> {{i.num_movies}}</p>
+      <p class="information"><b>Movies:</b> {{i.titles}}</p>
+      <p class="information"><b>Most frequent genre:</b> {{i.most_genre}}</p>
+      <p class="information"><b>Most frequent actor:</b> {{i.most_actor}}</p>
+      <p class="information"><b>Average Rating:</b> {{i.avg_rating}}</p>
+      </div>
+      <hr class="line">
+    </div>
+<!--all columns-->
+{% endfor %}
+  </div>
+<!--all rows-->
+{% endif %}
+
+</body>
+</html>
