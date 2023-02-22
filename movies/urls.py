@@ -8,11 +8,11 @@ from django.conf.urls.static import static
 
 app_name= 'movies'
 urlpatterns = [
-    path('home', views.display_home),
+    # path('home', views.display_home),
     path('movies', views.display_movies, name="movies"),
     path('director', views.display_directors),
     path('genres', views.display_genres),
-    path('', views.display_home),
+    path('', views.display_movies),
     path('stats', views.display_stats),
     path('movies/<int:id>', views.display_moviedetails, name='movie-detail'),
     path('directors/<str:director>', views.display_directordetails),
