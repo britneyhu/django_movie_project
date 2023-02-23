@@ -139,7 +139,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
-     '/home/ubuntu/django/django_movie_project/static'
+     os.path.join(BASE_DIR, 'static')
  ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static/")
