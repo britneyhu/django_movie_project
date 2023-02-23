@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'movies',
     'widget_tweaks',
-    'livereload',
 ]
 
 MIDDLEWARE = [
