@@ -142,4 +142,4 @@ STATICFILES_DIRS = [
      os.path.join(BASE_DIR, 'static')
  ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = '/home/ubuntu/django/django_movie_project/static'
