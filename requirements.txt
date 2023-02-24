@@ -75,3 +75,4 @@ tzdata==2022.7
 urllib3==1.26.14
 virtualenv==20.17.1
 wcwidth==0.2.5
+django-widget-tweaks==1.4.12
