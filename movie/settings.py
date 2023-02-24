@@ -83,7 +83,7 @@ DATABASES = {
     #  },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgresqldatabase',
+        'NAME': 'movie_database',
         'USER': 'postgres',
         'PASSWORD': 'Surfer510',
         'HOST': '127.0.0.1',
