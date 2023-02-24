@@ -83,10 +83,10 @@ DATABASES = {
     #  },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgresqldatabase',
-        'USER': 'ubuntu',
+        'NAME': 'Movie Project AWS Database',
+        'USER': 'postgres',
         'PASSWORD': 'Surfer510',
-        'HOST': '172.31.29.59',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
