@@ -9,7 +9,7 @@ Information:
 The website was built using the Django web framework. It uses Python for backend, HTML, CSS, and Javascript for frontend, and Postgresql as the database.
 
 Future:
-Currently working on deploying the website on AWS EC2 using Apache2, Nginx, and Gunicorn.
+Currently working on deploying the website on AWS EC2 instance using Apache2, Nginx, and Gunicorn.
 
 Contributors:
 Britney Hu (@britneyhu)
