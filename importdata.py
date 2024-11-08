@@ -1,13 +1,14 @@
 import django
-django.setup()
-import pandas as pd
-from movies.models import *
 import os
+import pandas as pd
 import shutil
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "movie.settings")
+django.setup()
+from movies.models import *
 from statistics import mode
 from collections import Counter
 #movieData.xlsx
-#/Users/britn/movieproject/src/movie_images
+#/Users/britneyhu/Movie Library/django_movie_project/movie_images
 
 
 def importtitles(excel_file, movie_image_folder, director_image_folder):
@@ -26,14 +27,14 @@ def importtitles(excel_file, movie_image_folder, director_image_folder):
         movies.append(row['rating'])
         movies.append(row['timeswatched'])
         movies.append("images/titles/"+ row['title']+'.jpg')
-        shutil.copy(movie_folder+'/'+row['title']+'.jpg', '/Users/britn/movieproject/src/media/images/titles')
+        shutil.copy(movie_folder+'/'+row['title']+'.jpg', '/Users/britneyhu/Movie Library/django_movie_project/media/images/titles')
         movies.append("images/directors/"+ row['director']+'.jpg')
-        shutil.copy(director_image_folder+'/'+row['director']+'.jpg', '/Users/britn/movieproject/src/media/images/directors')
+        shutil.copy(director_image_folder+'/'+row['director']+'.jpg', '/Users/britneyhu/Movie Library/django_movie_project/media/images/directors')
     for i in range(0, len(movies), 10):
         m = Movie(title=movies[i], director=movies[i+1], genre =movies[i+2], year=movies[i+3], star1=movies[i+4], star2=movies[i+5], rating=movies[i+6], timeswatched=movies[i+7], movieimage=movies[i+8], directorimage=movies[i+9])
         m.save()
 
-importtitles('Movie Data.xlsx', '/Users/britn/movieproject/src/movie_images', '/Users/britn/movieproject/src/director_images')
+importtitles('Movie Data.xlsx', '/Users/britneyhu/Movie Library/django_movie_project/movie_images', '/Users/britneyhu/Movie Library/django_movie_project/director_images')
 
 # def most_frequent(List):
 #     occurence_count = Counter(List)

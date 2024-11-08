@@ -1,0 +1,675 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&family=Syncopate:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+.body{
+    background-color:black;
+}
+
+.container{
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin:0;
+    background-color:black;
+}
+
+
+/* navbar */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    color: white;
+    background-color: rgb(27, 27, 27);
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  
+  .logo-text {
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    text-decoration:none; 
+    color:white;
+  }
+  
+  .navbar a {
+    font-family:'Syncopate', sans-serif; 
+    font-size:25px;
+    color: white;
+    text-decoration: none;
+    border: 5px;
+  }
+
+  .navbar a:hover{
+    text-decoration:none; 
+    color:rgb(94, 81, 242); 
+    font-family:'Syncopate', sans-serif; 
+    font-size:25px;
+}
+  
+  .search-container {
+    display: flex;
+  }
+  
+  .search-bar {
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-family: 'Fira Sans', sans-serif
+  }
+  
+  .search-button {
+    background-color: rgb(94, 81, 242);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Fira Sans', sans-serif;
+    margin-right: 10px
+  }
+
+  .navline{
+    border: 2px solid rgb(94, 81, 242);
+    margin:0;
+    margin-bottom: 30px;
+}
+
+/* navbar */
+
+
+.row{
+    display: inline-block;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+
+/* columns */
+
+.col-md-4{
+    display: inline-block;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    
+}
+
+.name{
+    color:white; 
+    font-size:30px; 
+    font-weight: bold;
+    font-family: 'Fira Sans', sans-serif;
+    background-color: rgb(27, 27, 27);
+    border-radius: 10px;
+    padding:5px;
+}
+
+.image{
+    width:300px; 
+    height:400px;  
+    border:5px solid rgb(94, 81, 242); 
+    border-radius: 5%;
+    margin:10px;
+}
+
+.image:hover{
+    width:300px; 
+    height:400px; 
+    border:5px solid rgb(94, 81, 242); 
+    border-radius: 5%;
+    opacity: 65%;
+}
+
+.description{
+    background-color: rgb(27, 27, 27);
+    border-radius: 20px;
+    padding:5px;
+}
+
+.information{
+    color:white; 
+    font-family: 'Fira Sans', sans-serif;
+    
+}
+
+.line{
+    border: 2px solid rgb(94, 81, 242);
+    margin:0;
+    margin-bottom: 30px;
+    margin-top: 10px
+}
+
+/* columns */
+
+
+/* genre */
+
+.genre-button{
+  background: none;
+}
+
+.genre-button img{
+  border:5px solid rgb(94, 81, 242); 
+  border-radius:5%;
+}
+
+.genre-button img:hover{
+  border-radius:5%;
+  opacity:65%;
+}
+
+/* genre */
+
+
+/* detail */
+
+.detailimage{
+  width:600px; 
+  height:700px;  
+  border-radius: 5%;
+  padding-bottom: 20px;
+}
+
+
+.detailinformation{
+  color:white; 
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+  font-size: 18px;
+}
+
+.detaildescription{
+  background-color: rgb(27, 27, 27);
+  border-radius: 20px;
+  border:5px solid rgb(94, 81, 242); 
+  border-radius: 5%;
+  padding:10px;
+}
+
+.submit-buttons{
+  text-align: center;
+  margin-top:70px;
+  
+}
+
+.edit-button0{
+  margin: 10px;
+  margin-top:20px;
+  margin-left:50px;
+  display: inline-block;
+  text-align: center;
+  margin:auto;
+}
+
+.edit-button{
+  background-color: rgb(94, 81, 242);
+  color: white;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  margin-top: 10px;
+  margin-bottom:20px;
+  text-decoration: none;
+  margin-left:20px;
+  text-align: center;
+  margin:auto;
+}
+
+.delete-button{
+  background-color: rgb(50, 50, 50);
+  color: white;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  margin-top: 10px;
+  margin-bottom:20px;
+  text-decoration: none;
+  margin-left:20px;
+  text-align: center;
+  margin:auto;
+}
+
+.delete-button:hover{
+  background-color: rgb(27, 27, 27);
+}
+
+.edit-button:hover{
+  opacity:80%;
+}
+
+
+/* search results */
+
+.search-title{
+  display: inline-block;
+  color:white; 
+  font-size:40px; 
+  font-family: 'Fira Sans', sans-serif;
+}
+
+/* search results */
+
+
+/* stats */
+
+.stats-button{
+  background: none;
+}
+
+.stats-button img{
+  width:300px; 
+  height:400px;
+  margin:10px;
+  border:5px solid rgb(94, 81, 242); 
+  border-radius:5%;
+}
+
+.stats-button img:hover{
+  border-radius:5%;
+  opacity:65%;
+}
+
+/* stats */
+
+
+/* form */
+
+.form-title{
+  display: inline-block;
+  color:white; 
+  font-size:35px; 
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+}
+
+.container-form{
+  width: 100%;
+  padding: 0;
+  margin:0;
+  background-color:black;
+}
+
+.form{
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 25px;
+  box-sizing: border-box;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/*title*/
+
+.title-label{
+  color:white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.title-box{
+  color:white;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 25px;
+  align-items: left;
+  border:transparent;
+  padding:20px ;
+  width:98%;
+  background-color: rgb(27, 27, 27);
+  outline:none;
+
+}
+
+.title-box:hover{
+  background-color: rgb(94, 81, 242);
+
+}
+
+.title-box:focus{
+  background-color: rgb(94, 81, 242);
+
+}
+
+/* .title-box:valid{
+  background-color: rgb(94, 81, 242);
+
+} */
+/*title*/
+
+/*button*/
+.form-button {
+  background-color: rgb(94, 81, 242);
+  color: white;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  font-family: 'Fira Sans', sans-serif;
+  float:right;
+  margin-top: 20px;
+  margin-bottom:20px;
+}
+
+.form-button:hover{
+  opacity:80%;
+}
+/*button*/
+
+/*star*/
+.star{
+  display:inline-flex;
+  width:100%;
+
+}
+
+.form-column{
+  width:50%;
+}
+
+.star-label{
+  color:white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.star-box{
+  color:white;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 25px;
+  align-items: left;
+  border:transparent;
+  padding:20px ;
+  width:98%;
+  background-color: rgb(27, 27, 27);
+  outline:none;
+
+}
+
+.star-box:hover{
+  background-color: rgb(94, 81, 242);
+
+}
+
+.star-box:focus{
+  background-color: rgb(94, 81, 242);
+
+}
+
+/* .star-box:valid{
+  background-color: rgb(94, 81, 242);
+
+} */
+
+.divider-column{
+  width:3.5%;
+}
+/*star*/
+
+/*genre*/
+.genre-label{
+  color:white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.genre-box{
+  color:white;
+  margin:0;
+  padding:0;
+}
+
+.genre-box input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.genre-box label{
+  display:inline-block;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  color:rgba(255, 255, 255, 0.521);
+  background-color: rgb(27, 27, 27);
+  padding: 10px 20px;
+  margin:5px;
+}
+
+.genre-box label:hover {
+  background-color: rgb(94, 81, 242);
+}
+
+
+.genre-box input[type="radio"]:checked + label{
+  background-color: rgb(94, 81, 242);
+  color:white;
+}
+/*genre*/
+
+
+/*year*/
+.year{
+  display:inline-flex;
+  width:100%;
+
+}
+
+.form-column{
+  width:50%;
+}
+
+.year-label{
+  color:white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.yearpicker{
+  color:white;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 25px;
+  align-items: left;
+  border:transparent;
+  padding:20px ;
+  width:98%;
+  background-color: rgb(27, 27, 27);
+  outline:none;
+
+}
+
+.divider-column{
+  width:3.5%;
+}
+
+.yearpicker:hover{
+  background-color: rgb(94, 81, 242);
+
+}
+
+.yearpicker:focus{
+  background-color: rgb(94, 81, 242);
+
+}
+
+/* .yearpicker:valid{
+  background-color: rgb(94, 81, 242);
+} */
+/*year*/
+
+
+
+/*times*/
+.times-label{
+  color:white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.times-box{
+  color:white;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 25px;
+  align-items: left;
+  border:transparent;
+  padding:20px ;
+  width:97%;
+  background-color: rgb(27, 27, 27);
+  outline:none;
+
+}
+
+.times-box:hover{
+  background-color: rgb(94, 81, 242);
+
+}
+
+.times-box:focus{
+  background-color: rgb(94, 81, 242);
+
+}
+
+/* .times-box:valid{
+  background-color: rgb(94, 81, 242);
+
+} */
+/*times*/
+
+
+
+/*rating*/
+.rating-label{
+  color:white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.rating-number{
+  color:white;
+  text-align: center;
+}
+
+label {
+  cursor: pointer;
+}
+
+svg {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.15rem;
+}
+
+
+/* hide radio buttons */
+
+input[type="radio"] {
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  margin-left: -2px;
+}
+
+/* hide source svg */
+
+.star-source {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+
+/* set initial color to transparent so fill is empty*/
+
+.star {
+  color: transparent;
+  transition: color 0.2s ease-in-out;
+}
+
+
+/* set direction to row-reverse so 5th star is at the end and ~ can be used to fill all sibling stars that precede last starred element*/
+
+.star-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  padding:5px;
+}
+
+label:hover ~ label .star,
+svg.star:hover,
+input[type="radio"]:focus ~ label .star,
+input[type="radio"]:checked ~ label .star {
+  color: rgb(94, 81, 242);
+}
+
+input[type="radio"]:checked + label .star {
+  color: rgb(94, 81, 242);
+}
+/*rating*/
+
+
+
+/*movie+genre image*/
+.image-uploads{
+  display:inline-flex;
+  width:100%;
+
+}
+
+.image-label{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  color:white;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.upload-label{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  font-size:15px;
+  background-color: rgb(94, 81, 242);
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.upload-label:hover{
+  background-color: rgb(72, 62, 182);
+}
+
+.imageupload{
+  margin: auto;
+  width: 50%;
+  color: white;
+  text-align: center;
+
+}
+
+.test{
+  color:white;
+}

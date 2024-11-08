@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -24,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0fhc28fj1xfdge(n@zbuyy3oe%qsgps4hg297zg#gx03^o#_rf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['ec2-54-218-236-59.us-west-2.compute.amazonaws.com']
+# ALLOWED_HOSTS = ['ec2-54-218-236-59.us-west-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -143,6 +143,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'movies/static'),
- ]
+]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")

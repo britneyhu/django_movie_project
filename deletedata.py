@@ -1,15 +1,16 @@
 import django
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "movie.settings")
 django.setup()
 from movies.models import *
-import os
 
 def delete_all():
     Movie.objects.all().delete()
 
-folder1 = '/Users/britn/movieproject/src/media/images/titles'
+folder1 = '/Users/britneyhu/Movie Library/django_movie_project/media/images/titles'
 folderlist1 = os.listdir(folder1)
 
-folder2 = '/Users/britn/movieproject/src/media/images/directors'
+folder2 = '/Users/britneyhu/Movie Library/django_movie_project/media/images/directors'
 folderlist2 = os.listdir(folder2)
 
 user = input('Delete all objects in Movies? (y/n)')
